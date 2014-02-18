@@ -46,7 +46,8 @@ If you don't mind combining all your scripts into one *CompositeScript*, you can
 </asp:ScriptManager>
 ```
 
-*The downside to this is that all of the scripts in the composite will be reloaded, not just the changed file.
+* The downside to this is that all of the scripts in the composite will be reloaded, not just the changed file.
+* The upside is that scripts in the composite will always be reloaded when they are modified, without doing anything else.
 
 
 #### Benefits
