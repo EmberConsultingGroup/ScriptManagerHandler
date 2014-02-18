@@ -1,9 +1,9 @@
 ScriptManager Handler
 =============================
 
-If you are using `ScriptManager` to load scripts for an ASP.NET WebForms application, you may need a convenient way to invalidate client cache (cache busting) when scripts are updated.
+If you are using [ScriptManager](http://msdn.microsoft.com/en-us/library/system.web.ui.scriptmanager(v=vs.110).aspx) to load scripts for an [ASP.NET WebForms](http://www.asp.net/web-forms) application, you may need a convenient way to invalidate client cache (cache busting) when scripts are updated.
 
-This approach allows you to manage a single manifest file where you maintain the version of the javascript files that you want to version. When the files are loaded via `ScriptManager` the `HttpHandler` handles `PreRequestHandlerExecute` and appends a version stamp to the url of each script being requested.
+This approach allows you to manage a single manifest file where you maintain a list of the javascript files that you want to version. When the files are loaded via *ScriptManager* a custom [HttpHandler](http://msdn.microsoft.com/en-us/library/ms227675(v=vs.85).aspx) handles the [HttpApplication.PreRequestHandlerExecute](http://msdn.microsoft.com/en-us/library/system.web.httpapplication.prerequesthandlerexecute(v=vs.110).aspx) event and appends a version stamp to the url of each script being requested.
 
 #### Getting it to work
 i. Add the path to your manifest file in your *web.config*.
@@ -14,7 +14,7 @@ i. Add the path to your manifest file in your *web.config*.
 ```
 ii. Add a *ScriptManifest.xml* file to your *~/App_Data* folder or wherever you specified above.
 
-iii. Add the names of your script files (name only, no path or extension) and versions to the xml file.
+iii. Add the names of your script files (name only, no path or extension) and versions to the *ScriptManifest.xml* file.
 ```xml
 <scripts>
   <script name="common" v="1.5"/>
