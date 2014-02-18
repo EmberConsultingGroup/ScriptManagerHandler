@@ -22,7 +22,7 @@ iii. Add the names of your script files (name only, no path or extension) and ve
 ```
 iv. Compile and reference [Ember.Web](http://github.com/EmberConsultingGroup/ScriptManagerHandler/tree/master/Ember.Web) in your web application.
 
-v. Add the *ScriptLoaderHttpModule* to the *web.config*
+v. Add the *ScriptLoaderHttpModule* to the *web.config* (optional see #6)
 ```xml
 <system.webServer>
   <modules runAllManagedModulesForAllRequests="false">
@@ -31,10 +31,12 @@ v. Add the *ScriptLoaderHttpModule* to the *web.config*
 </system.webServer>
 ```
 
-vi. Alternatively compile the [ScriptLoaderHttpModule](http://github.com/EmberConsultingGroup/ScriptManagerHandler/blob/master/Ember.Web/ScriptLoaderHttpModule.cs) and [ScriptManagerExtensions](http://github.com/EmberConsultingGroup/ScriptManagerHandler/blob/master/Ember.Web/ScriptManagerExtensions.cs) into your own assembly.
+vi. You can bypass the *HttpModule* and handle the `ScriptManager.ResolveScriptReference` in codebehind (see [Default.aspx.cs](https://github.com/EmberConsultingGroup/ScriptManagerHandler/blob/master/Website/Default.aspx.cs)). The disadvantage to this is that you must handle the event for all pages with a *ScriptManager*, requiring you to repeat your code. Or you could depend on a *MasterPage* with one *ScriptManager* if your site is designed that way.
+
+vii. Alternatively compile the [ScriptLoaderHttpModule, ScriptManagerExtensions, and ScriptManifest](https://github.com/EmberConsultingGroup/ScriptManagerHandler/tree/master/Ember.Web) into your own assembly.
 
 #### Aside
-If you don't mind combining all your scripts into one *CompositeScript*, you can use the *CompositeScript* feature of *ScriptManager*. This way a change to *any* file in the composite will force all combined scripts to reload on the client.
+If you don't mind combining all your scripts into one *CompositeScript*, you can use the *CompositeScript* feature of *ScriptManager*. This way a change to ***any*** file in the composite will force all combined scripts to reload on the client.
 ```xml
 <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release">
   <CompositeScript>
