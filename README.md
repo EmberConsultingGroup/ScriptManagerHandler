@@ -33,6 +33,22 @@ v. Add the *ScriptLoaderHttpModule* to the *web.config*
 
 vi. Alternatively compile the [ScriptLoaderHttpModule](http://github.com/EmberConsultingGroup/ScriptManagerHandler/blob/master/Ember.Web/ScriptLoaderHttpModule.cs) and [ScriptManagerExtensions](http://github.com/EmberConsultingGroup/ScriptManagerHandler/blob/master/Ember.Web/ScriptManagerExtensions.cs) into your own assembly.
 
+#### Aside
+If you don't mind combining all your scripts into one *CompositeScript*, you can use the *CompositeScript* feature of *ScriptManager*. This way a change to *any* file in the composite will force all combined scripts to reload on the client.
+```xml
+<asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release">
+  <CompositeScript>
+    <Scripts>
+      <asp:ScriptReference Path="~/Scripts/part1.js" />
+      <asp:ScriptReference Path="~/Scripts/part2.js" />
+    </Scripts>
+  </CompositeScript>
+</asp:ScriptManager>
+```
+
+*The downside to this is that all of the scripts in the composite will be reloaded, not just the changed file.
+
+
 #### Benefits
 * Manage your script file versions in one place
 * Continue to handle loading your scripts via ScriptManager
