@@ -36,7 +36,7 @@ namespace Ember.Web
 
                 if (sm != null)
                 {
-                    sm.LoadScripts(page);
+                    sm.LoadScripts();
                 }
             }
         }

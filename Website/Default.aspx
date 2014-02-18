@@ -9,10 +9,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release">
         <Scripts>
             <asp:ScriptReference Path="~/Scripts/common.js" />
         </Scripts>
+        <CompositeScript>
+            <Scripts>
+                <asp:ScriptReference Path="~/Scripts/part1.js" />
+                <asp:ScriptReference Path="~/Scripts/part2.js" />
+            </Scripts>
+        </CompositeScript>
     </asp:ScriptManager>
     <div>
         <h1>Script Manager Handler Example</h1>

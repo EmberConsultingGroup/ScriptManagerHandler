@@ -1,4 +1,4 @@
 ﻿
-(function() {
-    console.log('versioned javascript loaded');
+;(function() {
+    console.log('versioned common.js loaded');
 }())

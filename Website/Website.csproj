@@ -65,10 +65,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ScriptManifest.xml" />
+    <Content Include="App_Data\ScriptManifest.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\part1.js" />
+    <Content Include="Scripts\part2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
